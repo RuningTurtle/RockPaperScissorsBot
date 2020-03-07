@@ -32,7 +32,12 @@ def main():
         playerData[player] = [0, 0, 0]
     history = list(playerData[player])
     # set round limit
-    roundLimit = int(input("How many rounds would you like to play? "))
+    while True:
+        try:
+            roundLimit = int(input("How many rounds would you like to play? "))
+            break
+        except:
+            print("Please enter an integer. ")
     # gameplay
     humanDecision = ""
     while round < roundLimit:
