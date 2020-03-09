@@ -20,7 +20,7 @@ def main():
     humanWins = 0
     prevWinner = ""
     prevMove = ""
-    reps = False
+    reps = 1
     # check-in
     firstName = input("What's your first name? ")
     lastName = input("What's your last name? ")
@@ -50,9 +50,9 @@ def main():
         playerData[player][moveset.index(humanDecision)] += 1
         # check for repeats
         if humanDecision == prevMove:
-            reps = True
+            reps += 1
         else:
-            reps = False
+            reps = 1
             prevMove = humanDecision
         # compare
         print("bot plays " + botDecision)

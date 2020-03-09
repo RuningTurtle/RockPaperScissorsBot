@@ -22,13 +22,12 @@ def botChoice(round, history, prevWinner, prevMove, reps):
     if round == 0:
         return random.choice(moveset)
     # predict repetition avoidance
-    if reps and random.random() < 0.44:
-        if prevWinner == "human":
-            return moveset[(moveset.index(prevMove) + 1) % 3]
-        elif prevWinner == "bot":
-            return moveset[(moveset.index(prevMove) + 2) % 3]
+    if reps == 2 and random.random() < 0.5:
+        return moveset[(moveset.index(prevMove) + 2) % 3]
+    elif reps >= 3:
+        return moveset[(moveset.index(prevMove) + 1) % 3]
     # predict repetition / predict
-    if prevWinner == "human" and random.random() < 0.44:
+    if prevWinner == "human" and random.random() < random.random():
         return moveset[(moveset.index(prevMove) + 1) % 3]
     elif prevWinner == "bot" and random.random() < 0.77:
         return moveset[(moveset.index(prevMove) + 2) % 3]
